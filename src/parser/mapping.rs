@@ -5,13 +5,16 @@
 
 use crate::ast::{Entry, Yaml};
 use crate::error::{ErrorKind, Position, Result, YamlError};
-use crate::parser::flow::{parse_flow_value, FlowCursor};
+use crate::parser::flow::{FlowCursor, parse_flow_value};
 use crate::parser::parse_node;
 use crate::parser::sequence::{parse_scalar_or_quoted, split_mapping_key_val};
 use crate::scanner::{Line, Scanner};
 
 /// Parses a block mapping at the specified indentation level.
-pub fn parse_block_mapping<'a>(scanner: &mut Scanner<'a>, expected_indent: usize) -> Result<Yaml<'a>> {
+pub fn parse_block_mapping<'a>(
+    scanner: &mut Scanner<'a>,
+    expected_indent: usize,
+) -> Result<Yaml<'a>> {
     let mut entries = Vec::new();
 
     while let Some(line) = scanner.peek() {
@@ -33,7 +36,8 @@ pub fn parse_block_mapping<'a>(scanner: &mut Scanner<'a>, expected_indent: usize
 
             if let Some((key_part, val_part)) = split_mapping_key_val(line.content) {
                 let line_info = scanner.next_line().expect("peeked line must exist");
-                let entry = parse_mapping_entry(scanner, line_info, key_part, val_part, expected_indent)?;
+                let entry =
+                    parse_mapping_entry(scanner, line_info, key_part, val_part, expected_indent)?;
 
                 // Check for duplicate keys
                 if let Yaml::Scalar(key_name) = entry.key
