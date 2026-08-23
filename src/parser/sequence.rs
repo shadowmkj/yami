@@ -5,13 +5,16 @@
 
 use crate::ast::{Entry, Yaml};
 use crate::error::{ErrorKind, Position, Result, YamlError};
-use crate::parser::flow::{parse_flow_value, FlowCursor};
+use crate::parser::flow::{FlowCursor, parse_flow_value};
 use crate::parser::mapping::parse_block_mapping_with_first_entry;
 use crate::parser::parse_node;
 use crate::scanner::{Line, Scanner};
 
 /// Parses a block sequence at the specified indentation level.
-pub fn parse_block_sequence<'a>(scanner: &mut Scanner<'a>, expected_indent: usize) -> Result<Yaml<'a>> {
+pub fn parse_block_sequence<'a>(
+    scanner: &mut Scanner<'a>,
+    expected_indent: usize,
+) -> Result<Yaml<'a>> {
     let mut items = Vec::new();
 
     while let Some(line) = scanner.peek() {

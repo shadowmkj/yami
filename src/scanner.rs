@@ -35,9 +35,7 @@ impl<'a> Line<'a> {
     /// Checks if this line starts with a block sequence indicator (`-` followed by space or EOL).
     #[inline]
     pub fn is_sequence_item(&self) -> bool {
-        self.content == "-"
-            || self.content.starts_with("- ")
-            || self.content.starts_with("-\t")
+        self.content == "-" || self.content.starts_with("- ") || self.content.starts_with("-\t")
     }
 
     /// Checks if this line represents a YAML document separator (`---` or `...`).
@@ -93,7 +91,11 @@ impl<'a> Scanner<'a> {
 
     /// Processes a single raw line of text: computes indentation, rejects tabs,
     /// strips trailing comments, and returns `Some(Line)` if non-empty.
-    fn process_line(raw: &'a str, line_number: usize, line_start_offset: usize) -> Result<Option<Line<'a>>> {
+    fn process_line(
+        raw: &'a str,
+        line_number: usize,
+        line_start_offset: usize,
+    ) -> Result<Option<Line<'a>>> {
         let mut indent = 0;
         let mut chars_iter = raw.char_indices();
 

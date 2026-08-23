@@ -1,0 +1,195 @@
+---
+source: tests/snapshot_tests.rs
+expression: doc
+---
+Mapping(
+    [
+        Entry {
+            key: Scalar(
+                "apiVersion",
+            ),
+            value: Scalar(
+                "apps/v1",
+            ),
+        },
+        Entry {
+            key: Scalar(
+                "kind",
+            ),
+            value: Scalar(
+                "Deployment",
+            ),
+        },
+        Entry {
+            key: Scalar(
+                "metadata",
+            ),
+            value: Mapping(
+                [
+                    Entry {
+                        key: Scalar(
+                            "name",
+                        ),
+                        value: Scalar(
+                            "nginx-deployment",
+                        ),
+                    },
+                    Entry {
+                        key: Scalar(
+                            "labels",
+                        ),
+                        value: Mapping(
+                            [
+                                Entry {
+                                    key: Scalar(
+                                        "app",
+                                    ),
+                                    value: Scalar(
+                                        "nginx",
+                                    ),
+                                },
+                            ],
+                        ),
+                    },
+                ],
+            ),
+        },
+        Entry {
+            key: Scalar(
+                "spec",
+            ),
+            value: Mapping(
+                [
+                    Entry {
+                        key: Scalar(
+                            "replicas",
+                        ),
+                        value: Scalar(
+                            "3",
+                        ),
+                    },
+                    Entry {
+                        key: Scalar(
+                            "selector",
+                        ),
+                        value: Mapping(
+                            [
+                                Entry {
+                                    key: Scalar(
+                                        "matchLabels",
+                                    ),
+                                    value: Mapping(
+                                        [
+                                            Entry {
+                                                key: Scalar(
+                                                    "app",
+                                                ),
+                                                value: Scalar(
+                                                    "nginx",
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                },
+                            ],
+                        ),
+                    },
+                    Entry {
+                        key: Scalar(
+                            "template",
+                        ),
+                        value: Mapping(
+                            [
+                                Entry {
+                                    key: Scalar(
+                                        "metadata",
+                                    ),
+                                    value: Mapping(
+                                        [
+                                            Entry {
+                                                key: Scalar(
+                                                    "labels",
+                                                ),
+                                                value: Mapping(
+                                                    [
+                                                        Entry {
+                                                            key: Scalar(
+                                                                "app",
+                                                            ),
+                                                            value: Scalar(
+                                                                "nginx",
+                                                            ),
+                                                        },
+                                                    ],
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                },
+                                Entry {
+                                    key: Scalar(
+                                        "spec",
+                                    ),
+                                    value: Mapping(
+                                        [
+                                            Entry {
+                                                key: Scalar(
+                                                    "containers",
+                                                ),
+                                                value: Sequence(
+                                                    [
+                                                        Mapping(
+                                                            [
+                                                                Entry {
+                                                                    key: Scalar(
+                                                                        "name",
+                                                                    ),
+                                                                    value: Scalar(
+                                                                        "nginx",
+                                                                    ),
+                                                                },
+                                                                Entry {
+                                                                    key: Scalar(
+                                                                        "image",
+                                                                    ),
+                                                                    value: Scalar(
+                                                                        "nginx:1.14.2",
+                                                                    ),
+                                                                },
+                                                                Entry {
+                                                                    key: Scalar(
+                                                                        "ports",
+                                                                    ),
+                                                                    value: Sequence(
+                                                                        [
+                                                                            Mapping(
+                                                                                [
+                                                                                    Entry {
+                                                                                        key: Scalar(
+                                                                                            "containerPort",
+                                                                                        ),
+                                                                                        value: Scalar(
+                                                                                            "80",
+                                                                                        ),
+                                                                                    },
+                                                                                ],
+                                                                            ),
+                                                                        ],
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        ),
+                                                    ],
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                },
+                            ],
+                        ),
+                    },
+                ],
+            ),
+        },
+    ],
+)

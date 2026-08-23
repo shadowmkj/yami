@@ -1,0 +1,92 @@
+---
+source: tests/snapshot_tests.rs
+expression: doc
+---
+Mapping(
+    [
+        Entry {
+            key: Scalar(
+                "package",
+            ),
+            value: Mapping(
+                [
+                    Entry {
+                        key: Scalar(
+                            "name",
+                        ),
+                        value: Scalar(
+                            "yami",
+                        ),
+                    },
+                    Entry {
+                        key: Scalar(
+                            "keywords",
+                        ),
+                        value: Sequence(
+                            [
+                                Scalar(
+                                    "yaml",
+                                ),
+                                Scalar(
+                                    "parser",
+                                ),
+                                Scalar(
+                                    "zero-copy",
+                                ),
+                                Scalar(
+                                    "fast",
+                                ),
+                            ],
+                        ),
+                    },
+                    Entry {
+                        key: Scalar(
+                            "metadata",
+                        ),
+                        value: Mapping(
+                            [
+                                Entry {
+                                    key: Scalar(
+                                        "authors",
+                                    ),
+                                    value: Sequence(
+                                        [
+                                            Scalar(
+                                                "Rust Developer <dev@example.com>",
+                                            ),
+                                        ],
+                                    ),
+                                },
+                                Entry {
+                                    key: Scalar(
+                                        "links",
+                                    ),
+                                    value: Mapping(
+                                        [
+                                            Entry {
+                                                key: Scalar(
+                                                    "repo",
+                                                ),
+                                                value: Scalar(
+                                                    "https://github.com/example/yami",
+                                                ),
+                                            },
+                                            Entry {
+                                                key: Scalar(
+                                                    "docs",
+                                                ),
+                                                value: Scalar(
+                                                    "https://docs.rs/yami",
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                },
+                            ],
+                        ),
+                    },
+                ],
+            ),
+        },
+    ],
+)

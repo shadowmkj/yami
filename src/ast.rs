@@ -359,9 +359,7 @@ mod tests {
         assert!(Yaml::Scalar("ON").to_bool().expect("ON should parse"));
         assert!(Yaml::Scalar("1").to_bool().expect("1 should parse"));
 
-        assert!(!Yaml::Scalar("false")
-            .to_bool()
-            .expect("false should parse"));
+        assert!(!Yaml::Scalar("false").to_bool().expect("false should parse"));
         assert!(!Yaml::Scalar("no").to_bool().expect("no should parse"));
         assert!(!Yaml::Scalar("off").to_bool().expect("off should parse"));
         assert!(!Yaml::Scalar("0").to_bool().expect("0 should parse"));

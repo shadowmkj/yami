@@ -1,0 +1,97 @@
+---
+source: tests/snapshot_tests.rs
+expression: doc
+---
+Mapping(
+    [
+        Entry {
+            key: Scalar(
+                "version",
+            ),
+            value: Scalar(
+                "3.8",
+            ),
+        },
+        Entry {
+            key: Scalar(
+                "services",
+            ),
+            value: Mapping(
+                [
+                    Entry {
+                        key: Scalar(
+                            "web",
+                        ),
+                        value: Mapping(
+                            [
+                                Entry {
+                                    key: Scalar(
+                                        "image",
+                                    ),
+                                    value: Scalar(
+                                        "nginx:alpine",
+                                    ),
+                                },
+                                Entry {
+                                    key: Scalar(
+                                        "ports",
+                                    ),
+                                    value: Sequence(
+                                        [
+                                            Scalar(
+                                                "80:80",
+                                            ),
+                                            Scalar(
+                                                "443:443",
+                                            ),
+                                        ],
+                                    ),
+                                },
+                                Entry {
+                                    key: Scalar(
+                                        "environment",
+                                    ),
+                                    value: Mapping(
+                                        [
+                                            Entry {
+                                                key: Scalar(
+                                                    "NODE_ENV",
+                                                ),
+                                                value: Scalar(
+                                                    "production",
+                                                ),
+                                            },
+                                            Entry {
+                                                key: Scalar(
+                                                    "PORT",
+                                                ),
+                                                value: Scalar(
+                                                    "80",
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                },
+                                Entry {
+                                    key: Scalar(
+                                        "volumes",
+                                    ),
+                                    value: Sequence(
+                                        [
+                                            Scalar(
+                                                "./data:/var/www/html",
+                                            ),
+                                            Scalar(
+                                                "./config/nginx.conf:/etc/nginx/nginx.conf",
+                                            ),
+                                        ],
+                                    ),
+                                },
+                            ],
+                        ),
+                    },
+                ],
+            ),
+        },
+    ],
+)

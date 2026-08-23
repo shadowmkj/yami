@@ -9,9 +9,11 @@ pub mod sequence;
 
 use crate::ast::Yaml;
 use crate::error::{ErrorKind, Result, YamlError};
-use crate::parser::flow::{parse_flow_value, FlowCursor};
+use crate::parser::flow::{FlowCursor, parse_flow_value};
 use crate::parser::mapping::parse_block_mapping;
-use crate::parser::sequence::{parse_block_sequence, parse_scalar_or_quoted, split_mapping_key_val};
+use crate::parser::sequence::{
+    parse_block_sequence, parse_scalar_or_quoted, split_mapping_key_val,
+};
 use crate::scanner::Scanner;
 
 /// Parses any YAML node at the specified minimum indentation level.
@@ -44,10 +46,7 @@ pub fn parse_node<'a>(scanner: &mut Scanner<'a>, min_indent: usize) -> Result<Ya
 
     if line.content.starts_with('[') || line.content.starts_with('{') {
         let line_info = scanner.next_line().expect("line exists");
-        let mut cursor = FlowCursor::new(
-            line_info.content,
-            line_info.start_position(),
-        );
+        let mut cursor = FlowCursor::new(line_info.content, line_info.start_position());
         let val = parse_flow_value(&mut cursor)?;
         return Ok(val);
     }

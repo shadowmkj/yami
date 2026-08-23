@@ -315,7 +315,10 @@ fn parse_single_quoted_scalar<'a>(cursor: &mut FlowCursor<'a>) -> Result<Yaml<'a
             cursor.rest = &cursor.rest[idx + 1..];
             Ok(Yaml::Scalar(inner))
         }
-        None => Err(YamlError::new(ErrorKind::UnclosedDelimiter('\''), start_pos)),
+        None => Err(YamlError::new(
+            ErrorKind::UnclosedDelimiter('\''),
+            start_pos,
+        )),
     }
 }
 

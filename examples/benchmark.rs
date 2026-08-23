@@ -57,12 +57,16 @@ service:
     let elapsed = start.elapsed();
     let nanos_per_op = elapsed.as_nanos() as f64 / iterations as f64;
     let ops_per_sec = iterations as f64 / elapsed.as_secs_f64();
-    let mb_per_sec = (yaml_payload.len() as f64 * iterations as f64)
-        / (1024.0 * 1024.0 * elapsed.as_secs_f64());
+    let mb_per_sec =
+        (yaml_payload.len() as f64 * iterations as f64) / (1024.0 * 1024.0 * elapsed.as_secs_f64());
 
     println!("Iterations:       {}", iterations);
     println!("Total time:       {:.2?}", elapsed);
-    println!("Time per parse:   {:.2} ns ({:.2} µs)", nanos_per_op, nanos_per_op / 1000.0);
+    println!(
+        "Time per parse:   {:.2} ns ({:.2} µs)",
+        nanos_per_op,
+        nanos_per_op / 1000.0
+    );
     println!("Throughput:       {:.0} parses/sec", ops_per_sec);
     println!("Bandwidth:        {:.2} MB/sec", mb_per_sec);
     println!("============================================================");
