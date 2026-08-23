@@ -97,7 +97,7 @@ impl<'a> Scanner<'a> {
         let mut indent = 0;
         let mut chars_iter = raw.char_indices();
 
-        // 1. Calculate leading indentation and enforce tab restriction
+        // Calculate leading space indentation and strictly enforce space-only indentation rules
         for (idx, ch) in chars_iter.by_ref() {
             match ch {
                 ' ' => indent += 1,
@@ -120,7 +120,7 @@ impl<'a> Scanner<'a> {
         let content_start = indent;
         let after_indent = &raw[content_start..];
 
-        // 2. Strip comments taking quoting into account
+        // Strip inline comments while preserving # characters inside quotes
         let stripped_content = Self::strip_comments(after_indent);
         let trimmed_content = stripped_content.trim_end();
 

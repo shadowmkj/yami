@@ -38,12 +38,10 @@ pub fn parse_node<'a>(scanner: &mut Scanner<'a>, min_indent: usize) -> Result<Ya
 
     let current_indent = line.indent;
 
-    // 1. Block sequence item starting with `-`
     if line.is_sequence_item() {
         return parse_block_sequence(scanner, current_indent);
     }
 
-    // 2. Inline flow collection starting with `[` or `{`
     if line.content.starts_with('[') || line.content.starts_with('{') {
         let line_info = scanner.next_line().expect("line exists");
         let mut cursor = FlowCursor::new(
@@ -54,12 +52,10 @@ pub fn parse_node<'a>(scanner: &mut Scanner<'a>, min_indent: usize) -> Result<Ya
         return Ok(val);
     }
 
-    // 3. Block mapping entry containing `: ` or ending with `:`
     if split_mapping_key_val(line.content).is_some() {
         return parse_block_mapping(scanner, current_indent);
     }
 
-    // 4. Plain or quoted scalar line
     let line_info = scanner.next_line().expect("line exists");
     Ok(parse_scalar_or_quoted(line_info.content))
 }
