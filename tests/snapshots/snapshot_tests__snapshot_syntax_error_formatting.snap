@@ -1,0 +1,12 @@
+---
+source: tests/snapshot_tests.rs
+expression: err
+---
+YamlError {
+    kind: TabInIndentation,
+    position: Position {
+        line: 2,
+        column: 1,
+        offset: 8,
+    },
+}
