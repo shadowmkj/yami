@@ -16,4 +16,5 @@ pub mod scanner;
 
 pub use ast::{Entry, Yaml};
 pub use error::{ErrorKind, Position, Result, YamlError};
+pub use parser::parse;
 pub use scanner::{Line, Scanner};
