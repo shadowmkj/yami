@@ -93,5 +93,3 @@ recurse_submodules = false
 [remote.github]
 owner = "shadowmkj"
 repo = "yami"
-
-

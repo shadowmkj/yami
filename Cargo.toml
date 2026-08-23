@@ -2,6 +2,13 @@
 name = "yami"
 version = "0.1.0"
 edition = "2024"
+authors = ["Milan Pramod <milanpramod99@gmail.com>"]
+description = "A lightweight, zero-copy, minimal-allocation YAML parser in Rust"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/shadowmkj/yami"
+keywords = ["fast", "parser", "strict", "yaml", "zero-copy"]
+categories = ["config", "no-std::no-alloc", "parser-implementations", "yaml"]
 
 [dependencies]
 eyre = "0.6.14"
