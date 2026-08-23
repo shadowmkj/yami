@@ -1,0 +1,13 @@
+[package]
+name = "yami"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eyre = "0.6.14"
+thiserror = "2.0.20"
+
+[dev-dependencies]
+insta = "1.48.0"
+quickcheck = "1.1.0"
+quickcheck_macros = "1.2.0"
